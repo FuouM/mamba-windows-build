@@ -19,6 +19,10 @@
 #include "reverse_scan.cuh"
 #include "static_switch.h"
 
+#ifndef M_LOG2E
+#define M_LOG2E 1.4426950408889634074
+#endif
+
 template<typename scalar_t> __device__ __forceinline__ scalar_t conj(scalar_t x);
 template<> __device__ __forceinline__ float conj<float>(float x) { return x; }
 template<> __device__ __forceinline__ complex_t conj<complex_t>(complex_t x) { return std::conj(x); }
